@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.32804.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DragaliaClient", "DragaliaClient\DragaliaClient.csproj", "{5D06E372-560F-4065-AAD8-946617000F39}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibConeshell", "LibConeshell\LibConeshell.csproj", "{75DA70E1-C361-4F9F-A1BA-662FA5DC9E55}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibConeshell.Test", "LibConeshell.Test\LibConeshell.Test.csproj", "{A5E164FC-018F-4A9F-88DC-3B6741F8CADF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NintendoAuth.Popup", "NintendoAuth.Popup\NintendoAuth.Popup.csproj", "{4DD8AC19-4AB8-4E17-BBEF-93874B30012C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D06E372-560F-4065-AAD8-946617000F39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D06E372-560F-4065-AAD8-946617000F39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D06E372-560F-4065-AAD8-946617000F39}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5D06E372-560F-4065-AAD8-946617000F39}.Debug|x64.Build.0 = Debug|Any CPU
+		{5D06E372-560F-4065-AAD8-946617000F39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D06E372-560F-4065-AAD8-946617000F39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D06E372-560F-4065-AAD8-946617000F39}.Release|x64.ActiveCfg = Release|Any CPU
+		{5D06E372-560F-4065-AAD8-946617000F39}.Release|x64.Build.0 = Release|Any CPU
+		{75DA70E1-C361-4F9F-A1BA-662FA5DC9E55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75DA70E1-C361-4F9F-A1BA-662FA5DC9E55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75DA70E1-C361-4F9F-A1BA-662FA5DC9E55}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{75DA70E1-C361-4F9F-A1BA-662FA5DC9E55}.Debug|x64.Build.0 = Debug|Any CPU
+		{75DA70E1-C361-4F9F-A1BA-662FA5DC9E55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75DA70E1-C361-4F9F-A1BA-662FA5DC9E55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75DA70E1-C361-4F9F-A1BA-662FA5DC9E55}.Release|x64.ActiveCfg = Release|Any CPU
+		{75DA70E1-C361-4F9F-A1BA-662FA5DC9E55}.Release|x64.Build.0 = Release|Any CPU
+		{A5E164FC-018F-4A9F-88DC-3B6741F8CADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5E164FC-018F-4A9F-88DC-3B6741F8CADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5E164FC-018F-4A9F-88DC-3B6741F8CADF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A5E164FC-018F-4A9F-88DC-3B6741F8CADF}.Debug|x64.Build.0 = Debug|Any CPU
+		{A5E164FC-018F-4A9F-88DC-3B6741F8CADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5E164FC-018F-4A9F-88DC-3B6741F8CADF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5E164FC-018F-4A9F-88DC-3B6741F8CADF}.Release|x64.ActiveCfg = Release|Any CPU
+		{A5E164FC-018F-4A9F-88DC-3B6741F8CADF}.Release|x64.Build.0 = Release|Any CPU
+		{4DD8AC19-4AB8-4E17-BBEF-93874B30012C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DD8AC19-4AB8-4E17-BBEF-93874B30012C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DD8AC19-4AB8-4E17-BBEF-93874B30012C}.Debug|x64.ActiveCfg = Debug|x64
+		{4DD8AC19-4AB8-4E17-BBEF-93874B30012C}.Debug|x64.Build.0 = Debug|x64
+		{4DD8AC19-4AB8-4E17-BBEF-93874B30012C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DD8AC19-4AB8-4E17-BBEF-93874B30012C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DD8AC19-4AB8-4E17-BBEF-93874B30012C}.Release|x64.ActiveCfg = Release|x64
+		{4DD8AC19-4AB8-4E17-BBEF-93874B30012C}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FF7E4F24-D784-49EF-89AD-77F4A028D238}
+	EndGlobalSection
+EndGlobal
