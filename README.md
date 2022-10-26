@@ -10,5 +10,6 @@
 ## Usage
 
 1. Download the latest release from the [Releases](https://github.com/LukeFZ/DragaliaSaveDownloader/releases) tab.
-2. Launch the executable and follow the instructions.
-3. Done!
+2. Extract the downloaded archive.
+3. Launch the executable and follow the instructions.
+4. Done!
