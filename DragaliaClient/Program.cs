@@ -37,18 +37,29 @@ namespace DragaliaClient
             if (coneshellClient.Login(uuid))
             {
                 Console.WriteLine("Successfully logged in!");
+                Console.WriteLine("Downloading player data...");
 
-                var loadIndexResponseData = coneshellClient.Send<ConeshellRequests.RequestCommon, dynamic>(new ConeshellRequests.RequestCommon(), Constants.LoadIndex);
-                var jsonLoadIndex = JsonSerializer.Serialize(loadIndexResponseData,
-                    new JsonSerializerOptions(JsonSerializerDefaults.General) {WriteIndented = true});
+                SaveResponse(coneshellClient, "savedata.txt", Constants.LoadIndex);
+                SaveResponse(coneshellClient, "missionlist.txt", Constants.GetMissionList);
+                SaveResponse(coneshellClient, "endeavour.txt", Constants.DmodeGetData);
 
-                File.WriteAllText("savedata.txt", jsonLoadIndex);
-                Console.WriteLine("Saved savedata to savedata.txt.");
+                Console.WriteLine("Finished! Press any key to exit.");
+                Console.ReadKey();
             }
             else
             {
                 Console.WriteLine("Failed to login.");
             }
+        }
+
+        private static void SaveResponse(ConeshellClient client, string filename, string url)
+        {
+            var loadIndexResponseData = client.Send<ConeshellRequests.RequestCommon, dynamic>(new ConeshellRequests.RequestCommon(), url);
+            var jsonLoadIndex = JsonSerializer.Serialize(loadIndexResponseData,
+                new JsonSerializerOptions(JsonSerializerDefaults.General) { WriteIndented = true });
+
+            File.WriteAllText(filename, jsonLoadIndex);
+            Console.WriteLine($"Saved {filename}.");
         }
 
         private static (string sessionId, string deviceUserId, DeviceAccount deviceAccount) GetDeviceAccount()
@@ -84,7 +95,7 @@ namespace DragaliaClient
             loginResponse.EnsureSuccessStatusCode();
 
             var loginResponseData = loginResponse.Content.ReadFromJsonAsync<BaaSLoginResponse>().Result;
-            if (loginResponseData == null || loginResponseData.User == null)
+            if (loginResponseData?.User == null)
             {
                 Console.WriteLine("Failed to create new device account.");
                 Console.ReadLine(); Environment.Exit(-1);

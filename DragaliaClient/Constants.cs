@@ -35,10 +35,16 @@ public class Constants
     // Coneshell constants
     public const string OfficialServerEncPublicKey = "d733a12a53e53153b1ffd8908d28e0e1be2f03b17d9d47deca8285070094d849";
     public const string ProductionEndpoint = "https://production-api.dragalialost.com/2.19.0_20220719103923";
+
+    // Coneshell login constants
+    public const string TransitionByNAccount = $"{ProductionEndpoint}/transition/transition_by_n_account"; // Unused/Not needed
     public const string PushNotificationUpdate = $"{ProductionEndpoint}/push_notification/update_setting";
     public const string ToolAuth = $"{ProductionEndpoint}/tool/auth";
-    public const string LoadIndex = $"{ProductionEndpoint}/load/index";
     public const string GetDeployVersion = $"{ProductionEndpoint}/deploy/get_deploy_version";
     public const string GetResourceVersion = $"{ProductionEndpoint}/version/get_resource_version";
-    public const string TransitionByNAccount = $"{ProductionEndpoint}/transition/transition_by_n_account";
+
+    // Coneshell player data constants
+    public const string LoadIndex = $"{ProductionEndpoint}/load/index";
+    public const string GetMissionList = $"{ProductionEndpoint}/mission/get_mission_list";
+    public const string DmodeGetData = $"{ProductionEndpoint}/dmode/get_data";
 }
