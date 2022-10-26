@@ -3,6 +3,7 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using DragaliaClient.Models;
+using Microsoft.Web.WebView2.Core;
 using NintendoAuth.Popup;
 using Org.BouncyCastle.Crypto.Parameters;
 
@@ -13,6 +14,12 @@ namespace DragaliaClient
         [STAThread]
         static void Main(string[] args)
         {
+            if (CoreWebView2Environment.GetAvailableBrowserVersionString() == null)
+            {
+                Console.WriteLine("Error: You need to install the WebView2 Runtime. Download Link: https://go.microsoft.com/fwlink/p/?LinkId=2124703");
+                Console.ReadKey(); Environment.Exit(-1);
+            }
+
             Console.WriteLine("Creating device account...");
             var (nintendoSessionId, deviceUserId, deviceAccount) = GetDeviceAccount();
             Console.WriteLine("Created device account!");
@@ -44,12 +51,13 @@ namespace DragaliaClient
                 SaveResponse(coneshellClient, "endeavour.txt", Constants.DmodeGetData);
 
                 Console.WriteLine("Finished! Press any key to exit.");
-                Console.ReadKey();
             }
             else
             {
                 Console.WriteLine("Failed to login.");
             }
+
+            Console.ReadKey();
         }
 
         private static void SaveResponse(ConeshellClient client, string filename, string url)
@@ -98,7 +106,7 @@ namespace DragaliaClient
             if (loginResponseData?.User == null)
             {
                 Console.WriteLine("Failed to create new device account.");
-                Console.ReadLine(); Environment.Exit(-1);
+                Console.ReadKey(); Environment.Exit(-1);
             }
 
             return (loginResponseData.SessionId, loginResponseData.User!.Id, loginResponseData.CreatedDeviceAccount);
@@ -141,7 +149,7 @@ namespace DragaliaClient
             if (loginResponseData?.User == null)
             {
                 Console.WriteLine("Failed to associate device with Nintendo account.");
-                Console.ReadLine(); Environment.Exit(-1);
+                Console.ReadKey(); Environment.Exit(-1);
             }
 
             return (loginResponseData.IdToken, loginResponseData.User.Id);
@@ -168,7 +176,7 @@ namespace DragaliaClient
             if (oauthToken == "")
             {
                 Console.WriteLine("Failed to acquire OAuth token.");
-                Console.ReadLine(); Environment.Exit(-1);
+                Console.ReadKey(); Environment.Exit(-1);
             }
 
             var sessionTokenCode = oauthToken.Split("&").First(entry => entry.StartsWith("session_token_code"))[19..];
@@ -193,7 +201,7 @@ namespace DragaliaClient
             if (sessionTokenInfo == null)
             {
                 Console.WriteLine("Failed to acquire session token.");
-                Console.ReadLine(); Environment.Exit(-1);
+                Console.ReadKey(); Environment.Exit(-1);
             }
 
             var sessionToken = sessionTokenInfo.session_token;
@@ -210,13 +218,15 @@ namespace DragaliaClient
             if (sdkTokenInfo == null)
             {
                 Console.WriteLine("Failed to acquire sdk token.");
-                Console.ReadLine(); Environment.Exit(-1);
+                Console.ReadKey(); Environment.Exit(-1);
             }
 
             var userId = sdkTokenInfo.User.Id;
             var idToken = sdkTokenInfo.IdToken;
 
-            //Console.WriteLine($"BaaS User Id: {sdkTokenInfo.User.Id} | ID Token: {sdkTokenInfo.IdToken}");
+            #if DEBUG
+            Console.WriteLine($"BaaS User Id: {sdkTokenInfo.User.Id} | ID Token: {sdkTokenInfo.IdToken}");
+            #endif
 
             return idToken;
         }
