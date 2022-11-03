@@ -4,7 +4,7 @@
 ## Requirements
 
 - Your Dragalia account must be linked to a Nintendo account. **Device-only accounts are not supported!** 
-- .NET 6.x [x64](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-6.0.10-windows-x64-installer)/[x86](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-6.0.10-windows-x86-installer) installed
+- .NET 6.x [64-bit](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-6.0.10-windows-x64-installer) or [32-bit](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-6.0.10-windows-x86-installer) installed
 - [WebView2](https://go.microsoft.com/fwlink/p/?LinkId=2124703) installed
 
 ## Usage
