@@ -3,23 +3,14 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using DragaliaClient.Models;
-using Microsoft.Web.WebView2.Core;
-using NintendoAuth.Popup;
 using Org.BouncyCastle.Crypto.Parameters;
 
 namespace DragaliaClient
 {
     internal class Program
     {
-        [STAThread]
         static void Main(string[] args)
         {
-            if (CoreWebView2Environment.GetAvailableBrowserVersionString() == null)
-            {
-                Console.WriteLine("Error: You need to install the WebView2 Runtime. Download Link: https://go.microsoft.com/fwlink/p/?LinkId=2124703");
-                Console.ReadKey(); Environment.Exit(-1);
-            }
-
             Console.WriteLine("Creating device account...");
             var (nintendoSessionId, deviceUserId, deviceAccount) = GetDeviceAccount();
             Console.WriteLine("Created device account!");
@@ -172,7 +163,7 @@ namespace DragaliaClient
 
             var oauthLoginUrl = Constants.Authorize + Utils.UrlEncode(oauthParameters);
 
-            var oauthToken = OAuthPopup.ShowPopup(oauthLoginUrl);
+            var oauthToken = DoOAuthFlow(oauthLoginUrl);
             if (oauthToken == "")
             {
                 Console.WriteLine("Failed to acquire OAuth token.");
@@ -229,6 +220,33 @@ namespace DragaliaClient
             #endif
 
             return idToken;
+        }
+
+        private static string DoOAuthFlow(string oauthUrl)
+        {
+            Console.WriteLine("Please follow the following steps:");
+            Console.WriteLine($"1. Open this URL in a new browser window: {oauthUrl}");
+            Console.WriteLine(
+                "2. Once you arrive at the 'Select the account' page, right-click the red selection button and choose 'Copy Url'.");
+            Console.WriteLine("3. Paste the copied URL into this console window and press enter.");
+
+            string submittedUrl;
+
+            while (true)
+            {
+                submittedUrl = Console.ReadLine();
+                if (submittedUrl == null || !submittedUrl.StartsWith("npf"))
+                {
+                    Console.WriteLine("This does not look like a valid authentication URL.");
+                    Console.WriteLine("Please try again.");
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            return submittedUrl;
         }
     }
 }
