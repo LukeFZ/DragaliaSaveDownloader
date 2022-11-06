@@ -230,7 +230,7 @@ namespace DragaliaClient
                 "2. Once you arrive at the 'Select the account' page, right-click the red selection button and choose 'Copy Url'.");
             Console.WriteLine("3. Paste the copied URL into this console window and press enter.");
 
-            string submittedUrl;
+            string? submittedUrl;
 
             while (true)
             {
