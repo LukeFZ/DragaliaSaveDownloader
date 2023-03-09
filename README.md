@@ -1,3 +1,5 @@
+**UPDATE:** The servera have now beem fully taken offline - it is no longer possible to dowmload your save data.
+
 # DragaliaSaveDownloader
 *A utility to help players preserve their DL player data*
 
